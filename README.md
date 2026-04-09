@@ -16,7 +16,7 @@ Configuring multple LANs using a layer 3 swit with inter-VLAN routing
   <li>Layer 3 switch used as gateway and DHCP server</li>  
 </ul>
 
-Key Configurations
+**Key Configurations**
 <ul>
   <li>Created VLANs and assigned switch ports</li>
   <li>Configured SVIs for routing between VLANs</li>
