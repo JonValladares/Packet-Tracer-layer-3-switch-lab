@@ -1,0 +1,46 @@
+conf t
+vlan 10
+ name LAN1
+exit
+
+vlan 20
+ name LAN2
+exit
+
+interface range fa0/1-12
+ switchport mode access
+ switchport access vlan 10
+exit
+
+interface range fa0/13-24
+ switchport mode access
+ switchport access vlan 20
+exit
+
+interface vlan 10
+ ip address 192.168.10.1 255.255.255.0
+ no shutdown
+exit
+
+interface vlan 20
+ ip address 192.168.20.1 255.255.255.0
+ no shutdown
+exit
+
+ip routing
+
+conf t
+ip dhcp excluded-address 192.168.10.1
+ip dhcp excluded-address 192.168.20.1
+
+ip dhcp pool LAN1
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
+exit
+
+ip dhcp pool LAN2
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1
+ dns-server 8.8.8.8
+exit
