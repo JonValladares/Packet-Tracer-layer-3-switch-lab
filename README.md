@@ -11,8 +11,8 @@ Configuring multple LANs using a layer 3 swit with inter-VLAN routing
 
 **Network Design**
 <ul>
-  <li>VLAN 10: 192.168.10/24</li>
-  <li>VLAN 20: 192.168.200/24</li>
+  <li>VLAN 10: 192.168.10.0/24</li>
+  <li>VLAN 20: 192.168.20.0/24</li>
   <li>Layer 3 switch used as gateway and DHCP server</li>  
 </ul>
 
@@ -30,3 +30,6 @@ Configuring multple LANs using a layer 3 swit with inter-VLAN routing
   <li>Inter-VLAN communication verified using ping command</li>
 </ul> 
 
+**Troubleshooting**
+
+When I first configured the network I assigned static IPs to verify communication between SVIs but didn't receieve a response across VLANs. After reviewing the configuration and  researching the issue, I found the cause. I never enabled `ip routing`. After enabling it I verified inter-VLANs connectivity via ping command.
